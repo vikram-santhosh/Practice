@@ -4,19 +4,21 @@ import java.util.ArrayList;
 
 public class AllRootLeavePath {
 
+
+
     public static void evaluate(Node node, ArrayList<Node> path, ArrayList<ArrayList<Node>> paths) {
 
         if (node != null) {
             path.add(node);
             if(node.left == null && node.right == null) {
                 paths.add(new ArrayList<>(path));
-                path.remove(path.size()-1);
             }
             else {
                 evaluate(node.left, path, paths);
                 evaluate(node.right, path, paths);
-                path.remove(path.size()-1);
             }
+            path.remove(path.size()-1);
+
         }
     }
 
@@ -51,12 +53,12 @@ public class AllRootLeavePath {
 
         ArrayList<ArrayList<Node>> paths = new ArrayList<>();
         ArrayList<Node> path = new ArrayList<>();
-        /*evaluate(root, path, paths);
-        paths.forEach( i -> {
-            i.forEach( j -> System.out.print(j.data + " ") );
+        evaluate(root, path, paths);
+        paths.forEach(i -> {
+            i.forEach(j -> System.out.print(j.data + " "));
             System.out.println();
-        });*/
+        });
 
-        evaluate1(root, new Node[1000], 0);
+        //evaluate1(root, new Node[1000], 0);
     }
 }

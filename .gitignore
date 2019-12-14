@@ -33,4 +33,5 @@ packages/
 .idea/
 out/
 *.iml
-
+/out
+/bin

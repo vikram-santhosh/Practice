@@ -1,4 +1,3 @@
-/*
 
 package com.practice.arrays;
 
@@ -7,22 +6,28 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class LargestNumber {
+
+    public String solve(List<String> arr) {
+        Comparator<String> comparator = (String x, String y) -> {
+           return (y+x).compareTo(x+y);
+        };
+        Collections.sort(arr, comparator);
+
+        StringBuilder sb = new StringBuilder();
+        for(String str : arr) sb.append(str);
+        return sb.toString();
+    }
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
+        LargestNumber obj = new LargestNumber();
         while(t>0) {
             int n = sc.nextInt();
             sc.nextLine();
-            Map<Integer,Integer> lookup = new HashMap<>();
-            List<Integer> input = Stream.of(sc.nextLine().split("\\s+")).map(Integer::valueOf).collect(Collectors.toList());
-            List<int[]> nums = new ArrayList<>();
-            for (int i : input){
-                do {
-                    int digit = 1/10
-                }while( i/10 != 0 );
-            }
+            List<String> input = Stream.of(sc.nextLine().split("\\s+")).collect(Collectors.toList());
+            System.out.println(obj.solve(input));
             t--;
         }
     }
 }
-*/
+

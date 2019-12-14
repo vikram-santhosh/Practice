@@ -18,7 +18,12 @@ public class EquilibriumPoint {
             int n = Integer.parseInt(br.readLine());
             int left_sum = 0;
             List<Integer> arr = Stream.of(br.readLine().split("\\s+")).map(Integer::valueOf).collect(Collectors.toList());
+            int currSumOfSq = arr.stream().map(j -> j * j).mapToInt(Integer::valueOf).sum();
+
+
             int right_sum = arr.stream().reduce(0, (x,y) -> x+y );
+
+
 
             for (int j=0;j<n;j++) {
                 right_sum = right_sum - arr.get(j);
